@@ -4,13 +4,13 @@ header {
   background-image: linear-gradient(
     to top,
     rgba($color-black, 1) 5%,
-    rgba($color-black, 0)
+    transparent
   );
 }
 
 header img {
   position: absolute;
-  z-index: -1;
+  z-index: -10;
   top: 0;
   left: 0;
   width: 100%;

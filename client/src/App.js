@@ -21,7 +21,6 @@ function App() {
     fetchData();
   }, []);
 
-  console.table(movie);
   return (
     <div className="wrapper">
       <div className="App">
