@@ -1,0 +1,49 @@
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    padding: 1rem 6rem;
+    background-color: rgba($color-black, 0.5);
+
+    & a:link,
+    & a:visited {
+        color: white;
+        text-decoration: none;
+
+    }
+
+    & a:hover {
+        color: $color-red;
+        text-decoration: none;
+
+    }
+
+
+    & .navbar-left {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        gap: 3rem;
+
+        & .logoNav {
+            font-size: 4rem;
+            color: $color-red;
+        }
+
+        & li .avatar {
+            width: 50px;
+            border-radius: 50%;
+            position: inherit;
+        }
+
+    }
+
+
+
+}

@@ -1,0 +1,99 @@
+header {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(
+    to top,
+    rgba($color-black, 1) 5%,
+    rgba($color-black, 0)
+  );
+}
+
+header img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include respond(ipad) {
+    height: auto;
+  }
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: 0;
+  padding-left: 6rem;
+  width: 55%;
+  text-transform: uppercase;
+
+  @include respond(ipad) {
+    top: 50%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  @include respond(phone) {
+    top: 30%;
+  }
+
+  & h4 {
+    display: flex;
+    padding: 2rem 0rem;
+
+    @include respond(ipad) {
+      display: block;
+      text-align: center;
+    }
+
+    & span {
+      padding: 0 10px;
+      border-right: 1px solid rgba($color-white, 0.5);
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+
+      & i {
+        display: inline-block;
+        background-color: orange;
+        padding: 0 8px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &__overview {
+    padding-bottom: 2rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+
+    & i {
+      color: $color-white;
+    }
+
+    & a:visited {
+      color: white;
+    }
+
+    @include respond(ipad) {
+      display: block;
+      text-align: center;
+    }
+  }
+}

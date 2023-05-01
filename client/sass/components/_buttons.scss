@@ -1,0 +1,16 @@
+.homeButton {
+    padding: 1rem 8rem;
+    border-radius: 10rem;
+    font-size: 2rem;
+    background-color: $color-grey-dark;
+    color: $color-white;
+    font-weight: 600;
+    border: none;
+
+
+
+    &:hover {
+        background-color: $color-red;
+        cursor: pointer;
+    }
+}

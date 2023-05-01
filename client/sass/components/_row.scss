@@ -1,0 +1,50 @@
+.row__section {
+  color: $color-white;
+  width: 100%;
+  padding-left: 6rem;
+
+  @include respond(ipad) {
+    padding-left: 0rem;
+  }
+}
+
+.row {
+  padding-top: 6rem;
+
+  & h2 {
+    margin-bottom: 2rem;
+  }
+
+  &__posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__poster {
+    max-height: 400px;
+    margin-right: 1rem;
+    object-fit: contain;
+    transition: transform 450ms;
+    &:hover {
+      transform: scale(1.08);
+    }
+
+    & img {
+      border-radius: 10px;
+      border: 1px solid $color-grey-light;
+      width: 200px;
+
+      @include respond(ipad) {
+      }
+
+      @include respond(hd) {
+      }
+    }
+  }
+}
