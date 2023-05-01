@@ -4,8 +4,8 @@ import Youtube from "react-youtube";
 
 function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
+  const [tmovies, setTMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState([]);
-  const [videosMovs, setVideosMovs] = useState([]);
   const base_url = "https://image.tmdb.org/t/p/original/";
 
   //portion de code qui fonctionne a partir d'une condition
@@ -18,20 +18,8 @@ function Row({ title, fetchUrl }) {
     fetchData();
   }, [fetchUrl]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const request2 = await axios.get(
-        `/movies/550/videos?api_key=67f774b0833b55a6e223a5d8d95a6366&language=en-US`
-      );
-
-      console.log(request2.results);
-      return request2;
-    }
-    fetchData();
-  }, []);
-
   const opts = {
-    height: "390",
+    height: "500",
     width: "100%",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
@@ -39,12 +27,14 @@ function Row({ title, fetchUrl }) {
     },
   };
 
-  const handleClick = (movie) => {
+  const handleClick = async (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
-      setTrailerUrl(videosMovs);
-      console.table(trailerUrl);
+      const fetchVideos = `/movie/${movie.id}/videos?api_key=67f774b0833b55a6e223a5d8d95a6366&language=en-US`;
+      const request = await axios.get(fetchVideos);
+      setTMovies(request.data.results[0].key);
+      setTrailerUrl(tmovies);
     }
   };
   return (
