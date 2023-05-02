@@ -30,8 +30,13 @@ function Row({ title, fetchUrl }) {
   const handleClick = async (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
-    } else {
+    } else if (movie.title) {
       const fetchVideos = `/movie/${movie.id}/videos?api_key=67f774b0833b55a6e223a5d8d95a6366&language=en-US`;
+      const request = await axios.get(fetchVideos);
+      setTMovies(request.data.results[0].key);
+      setTrailerUrl(tmovies);
+    } else if (movie.name) {
+      const fetchVideos = `/tv/${movie.id}/videos?api_key=67f774b0833b55a6e223a5d8d95a6366&language=en-US`;
       const request = await axios.get(fetchVideos);
       setTMovies(request.data.results[0].key);
       setTrailerUrl(tmovies);
